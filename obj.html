@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <button onclick="fn1()">obj1</button>
+    <button onclick="fn2()">obj2</button>
+    <button onclick="assing()">assing</button>
+    <button onclick="js()">json</button>
+    <button onclick="spred()">...</button>
+    <script type="text/javascript">
+      const obj1 = {
+        items: [],
+        add(item) {
+          this.items.push(item);
+        },
+        count() {
+          console.log(this.items.length);
+        },
+        info() {
+          console.log(this);
+        },
+      };
+
+      obj1.add(1);
+
+      const obj3 = Object.assign({}, obj1);
+
+      const obj4 = JSON.parse(JSON.stringify(obj1));
+      const obj5 = { ...obj1 };
+
+      class obj_class {
+        constructor() {
+          this.items = [];
+        }
+
+        add(item) {
+          this.items.push(item);
+        }
+        count() {
+          console.log(this.items.length);
+        }
+        info() {
+          console.log(this);
+        }
+      }
+      const obj2 = new obj_class();
+      obj2.add(1);
+      obj2.add(2);
+
+      function fn1() {
+        obj1.count();
+        obj1.info();
+      }
+      function fn2() {
+        obj2.count();
+        obj2.info();
+      }
+      function assing() {
+        obj3.count();
+        obj3.info();
+      }
+      function js() {
+        console.log(obj4);
+      }
+      function spred() {
+        console.log(obj5);
+      }
+    </script>
+  </body>
+</html>
